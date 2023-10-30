@@ -2,7 +2,8 @@ from django.shortcuts import render
 
 
 def login(request):
-    return render(request, 'user/login.html')
+    return render(request, 'users/Login.html')
+
 
 def registration(request):
-    return render(request, 'user/registrations.html')
+    return render(request, "users/registration.html")

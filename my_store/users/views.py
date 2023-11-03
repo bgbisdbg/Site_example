@@ -27,10 +27,8 @@ def registration(request):
         form = UserRegistrationForm(data=request.POST)
         if form.is_valid():
             form.save()
-<<<<<<< HEAD
-            messages.success(request, 'Поздравляем! Вы успешно зарегистрирвоались!')
-=======
->>>>>>> dcdc65fdec92ea8fe2390f19f0d9f238fae3e9ca
+            messages.success(request, 'Поздравляем! Вы успешно зарегистрирв!')
+
             return HttpResponseRedirect(reverse('users:login'))
     else:
         form = UserRegistrationForm
@@ -50,3 +48,8 @@ def profile(request):
         form = UserProfileForm(instance=request.user)
     context = {'title': 'Store - Профиль', 'form': form}
     return render(request, 'users/profile.html', context)
+
+
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect(reverse('index'))

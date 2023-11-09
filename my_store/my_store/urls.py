@@ -14,18 +14,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
-from django.conf.urls.static import static
-from django.conf import settings
+from django.contrib import admin  # Импорт админ панели
+from django.urls import path, include  # Импорт метода path отвечающий за формирование ссылок, чтобы подключить другие URL-шаблоны. Она используется для создания "вложенных" URL-шаблонов, чтобы разделить маршрутизацию на более модульные и управляемые части.
+from django.conf.urls.static import static # Для работы со статикой
+from django.conf import settings       # Импорт осноных настроек сюда
 
-from products.views import IndexView
+from products.views import IndexView   # Импорт класоового представление из файла views для работы со странице с продуктами
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("", IndexView.as_view(), name="index"),
-    path("products/", include('products.urls', namespace='products')),
-    path("users/", include('users.urls', namespace='users')),
+    path('admin/', admin.site.urls),                 # Урл адрес в админ панель
+    path("", IndexView.as_view(), name="index"),        # Урл на главную страницу
+    path("products/", include('products.urls', namespace='products')),  # Урл на католог ссылка с продуктами
+    path("users/", include('users.urls', namespace='users')),           # Урл на Пользовательский интерфейс
 
 ]
 

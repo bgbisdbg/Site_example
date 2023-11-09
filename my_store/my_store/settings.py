@@ -37,11 +37,11 @@ INSTALLED_APPS = [                         # Создаём и регистри�
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "products",                           # приложение Products
+    "products",
     'users',
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE = [                               #Блиблиотеки которые импортированные под копотом
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'my_store.urls'
+ROOT_URLCONF = 'my_store.urls'          # Корневой урл
 
 TEMPLATES = [
     {
@@ -75,8 +75,8 @@ WSGI_APPLICATION = 'my_store.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
+DATABASES = {                                    # Настройки БД здесь указывае какая база будет использоваться
+    'default': {                                 # И где она распаложена
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
@@ -119,10 +119,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (                         # Созадём переменную STATICFILES_DIRS и записываем в неё картеж
-    BASE_DIR / "static",
+    BASE_DIR / "static",                     # Она отвечает за путь который лежит к папке statice
 )
 
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media/'                        # Переменная которая отвечает за путь где лежит медиа файлы
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type

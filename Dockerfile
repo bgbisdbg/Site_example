@@ -6,4 +6,4 @@ RUN apt-get -y update \
     &&apt-get -y install python3-pip\
     &&pip install -r requirements.txt
 WORKDIR /site/my_store
-EXPOSE 8000
+

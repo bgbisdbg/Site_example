@@ -1,6 +1,6 @@
 from django.contrib import admin  # Импорт админки
-
-from products.models import ProductCategory, Product, Basket # Импорт моделей для вывода в админки в табличной форме
+from products.models import (  # Импорт моделей для вывода в админки в табличной форме
+    Basket, Product, ProductCategory)
 
 admin.site.register(ProductCategory)        # регистрация модели "Категории" для вывода в админки
 

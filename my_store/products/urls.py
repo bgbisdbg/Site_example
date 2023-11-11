@@ -1,5 +1,5 @@
-from django.urls import path # Импорт метода path отвечающий за формирование ссылок
-
+from django.urls import \
+    path  # Импорт метода path отвечающий за формирование ссылок
 from products.views import ProductsListView, basket_add, basket_remove
 
 # Здсь проходя по ссылке product из urls в корневой папке идёт до настройка

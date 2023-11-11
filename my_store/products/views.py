@@ -1,9 +1,13 @@
-from django.shortcuts import HttpResponseRedirect # Импорт класса который возвращает HTTP запрос
-from products.models import ProductCategory, Product, Basket # Импорт моделей
-from django.contrib.auth.decorators import login_required # Импорт декаратора на профиль пользьвателей
-from django.views.generic.base import TemplateView  # Импорт класса котороый отвечает за отображение главной стринцы
-from django.views.generic.list import ListView # Импорт класса который отвечает за посписочный вывод иноформации
 from common.views import TitleMixin
+from django.contrib.auth.decorators import \
+    login_required  # Импорт декаратора на профиль пользьвателей
+from django.shortcuts import \
+    HttpResponseRedirect  # Импорт класса который возвращает HTTP запрос
+from django.views.generic.base import \
+    TemplateView  # Импорт класса котороый отвечает за отображение главной стринцы
+from django.views.generic.list import \
+    ListView  # Импорт класса который отвечает за посписочный вывод иноформации
+from products.models import Basket, Product, ProductCategory  # Импорт моделей
 
 # функции = контролеры = вьюхи
 

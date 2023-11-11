@@ -14,12 +14,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings  # Импорт осноных настроек сюда
+from django.conf.urls.static import static  # Для работы со статикой
 from django.contrib import admin  # Импорт админ панели
-from django.urls import path, include  # Импорт метода path отвечающий за формирование ссылок, чтобы подключить другие URL-шаблоны. Она используется для создания "вложенных" URL-шаблонов, чтобы разделить маршрутизацию на более модульные и управляемые части.
-from django.conf.urls.static import static # Для работы со статикой
-from django.conf import settings       # Импорт осноных настроек сюда
-
-from products.views import IndexView   # Импорт класоового представление из файла views для работы со странице с продуктами
+from django.urls import (  # Импорт метода path отвечающий за формирование ссылок, чтобы подключить другие URL-шаблоны. Она используется для создания "вложенных" URL-шаблонов, чтобы разделить маршрутизацию на более модульные и управляемые части.
+    include, path)
+from products.views import \
+    IndexView  # Импорт класоового представление из файла views для работы со странице с продуктами
 
 urlpatterns = [
     path('admin/', admin.site.urls),                 # Урл адрес в админ панель

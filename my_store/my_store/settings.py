@@ -25,8 +25,10 @@ SECRET_KEY = 'django-insecure-7ig)tleuu4x8l5dbsi53*$a=lv%g+fb)2uhpz())3z)vh6asgc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['3.122.29.186', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
+
+DOMAIN_NAME = 'http://localhost:8000'
 
 # Application definition
 
@@ -136,6 +138,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.User'
 LOGIN_URL = '/users/login/'
+LOGIN_REDIRECT_URL = '/'         # Переменные которая перекидывет на главную страницу после авторизации указывается или index или / одно и тоже но правильнее слеш
+LOGOUT_REDIRECT_URL = '/'        # Переменная которая перекидывет на главную страницу после выхода из профиля
 
 
 
+# Sending email
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

@@ -3,24 +3,21 @@ from products.models import ProductCategory, Product, Basket # Импорт мо
 from django.contrib.auth.decorators import login_required # Импорт декаратора на профиль пользьвателей
 from django.views.generic.base import TemplateView  # Импорт класса котороый отвечает за отображение главной стринцы
 from django.views.generic.list import ListView # Импорт класса который отвечает за посписочный вывод иноформации
+from common.views import TitleMixin
 
 # функции = контролеры = вьюхи
 
 
-class IndexView(TemplateView):           # Создание класса
+class IndexView(TitleMixin, TemplateView):           # Создание класса
     template_name = "products/index.html"   # назанчение переменной
-
-    def get_context_data(self, **kwargs):  # функция которая является элементом класса и возвращает context
-        context = super(IndexView, self).get_context_data() # метод super который подготавлевыет переменную
-        context['title'] = 'Store'  # Создаём ключ и значение ключа
-        return context # Возвращаем context
+    title = 'Store'
 
 
-class ProductsListView(ListView):   #Создаёт общую переменную object_list
+class ProductsListView(TitleMixin, ListView):   #Создаёт общую переменную object_list
     model = Product                 # Указываем модель которую будем использовать
     template_name = "products/products.html"
     paginate_by = 3                 # Создаёт переменную page_obj
-
+    title = "Store - Каталог"
     def get_queryset(self):   # возвращение queryseta - это список объектов которые имеются в БД
         queryset = super(ProductsListView, self).get_queryset() # формирование queryseta
         category_id =self.kwargs.get('category_id') # Создание переменной для id категории
@@ -29,8 +26,6 @@ class ProductsListView(ListView):   #Создаёт общую переменн�
     def get_context_data(self, *, object_list=None, **kwargs):
         # Получаем контекст данных с помощью метода get_context_data из родительского класса.
         context = super(ProductsListView, self).get_context_data()
-        # Задаем значение ключа 'title' в контексте данных. Это будет использоваться для отображения заголовка в шаблоне.
-        context['title'] = "Store - Каталог"
         # Получаем все объекты модели ProductCategory и сохраняем их в контексте данных.
         context['categories'] = ProductCategory.objects.all()
         # Возвращаем обновленный контекст данных.

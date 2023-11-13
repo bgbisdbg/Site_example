@@ -23,11 +23,11 @@ from products.views import \
     IndexView  # Импорт класоового представление из файла views для работы со странице с продуктами
 
 urlpatterns = [
-    path('admin/', admin.site.urls),                 # Урл адрес в админ панель
-    path("", IndexView.as_view(), name="index"),        # Урл на главную страницу
+    path('admin/', admin.site.urls),  # Урл адрес в админ панель
+    path("", IndexView.as_view(), name="index"),  # Урл на главную страницу
     path("products/", include('products.urls', namespace='products')),  # Урл на католог ссылка с продуктами
-    path("users/", include('users.urls', namespace='users')),           # Урл на Пользовательский интерфейс
-
+    path("users/", include('users.urls', namespace='users')),  # Урл на Пользовательский интерфейс
+    path('accounts/', include('allauth.urls')),
 ]
 
 if settings.DEBUG:

@@ -88,10 +88,10 @@ WSGI_APPLICATION = 'my_store.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "store_db",
-        "USER": "postgres",
-        "PASSWORD": "qw89op12",
-        "HOST": "127.0.0.1",
+        "NAME": "zotxzndj",
+        "USER": "zotxzndj",
+        "PASSWORD": "l_Itz3PuoMwAd1tvSDU_dFtycBHQocKz",
+        "HOST": "snuffleupagus.db.elephantsql.com",
         "PORT": "5432",
     }
 }

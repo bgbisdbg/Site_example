@@ -26,6 +26,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+    "localhost",
+]
+
 DOMAIN_NAME = 'http://localhost:8000'
 
 # Application definition
@@ -43,6 +48,7 @@ INSTALLED_APPS = [  # Создаём и регистрируем приложе�
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
+    "debug_toolbar",
 
     "products",
     'users',
@@ -57,6 +63,7 @@ MIDDLEWARE = [  # Блиблиотеки которые импортирован
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "allauth.account.middleware.AccountMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = 'my_store.urls'  # Корневой урл
@@ -82,16 +89,26 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'my_store.wsgi.application'
 
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "zotxzndj",
-        "USER": "zotxzndj",
-        "PASSWORD": "l_Itz3PuoMwAd1tvSDU_dFtycBHQocKz",
-        "HOST": "snuffleupagus.db.elephantsql.com",
+        "NAME": "store_db",
+        "USER": "postgres",
+        "PASSWORD": "qw89op12",
+        "HOST": "localhost",
         "PORT": "5432",
     }
 }

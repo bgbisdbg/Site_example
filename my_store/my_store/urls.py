@@ -28,6 +28,7 @@ urlpatterns = [
     path("products/", include('products.urls', namespace='products')),  # Урл на католог ссылка с продуктами
     path("users/", include('users.urls', namespace='users')),  # Урл на Пользовательский интерфейс
     path('accounts/', include('allauth.urls')),
+    path('orders/', include('orders.urls', namespace='orders'))
 ]
 
 if settings.DEBUG:

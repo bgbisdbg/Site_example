@@ -51,6 +51,7 @@ INSTALLED_APPS = [  # Создаём и регистрируем приложе�
     "debug_toolbar",
 
     "products",
+    'orders',
     'users',
 ]
 
@@ -105,10 +106,10 @@ CACHES = {
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "store_db",
-        "USER": "postgres",
-        "PASSWORD": "qw89op12",
-        "HOST": "localhost",
+        "NAME": "zotxzndj",
+        "USER": "zotxzndj",
+        "PASSWORD": "l_Itz3PuoMwAd1tvSDU_dFtycBHQocKz",
+        "HOST": "snuffleupagus.db.elephantsql.com",
         "PORT": "5432",
     }
 }

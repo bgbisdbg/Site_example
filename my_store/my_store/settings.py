@@ -43,6 +43,7 @@ INSTALLED_APPS = [  # Создаём и регистрируем приложе�
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django.contrib.humanize',
 
     'allauth',
     'allauth.account',

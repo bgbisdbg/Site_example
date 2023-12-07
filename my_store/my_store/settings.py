@@ -31,7 +31,7 @@ INTERNAL_IPS = [
     "localhost",
 ]
 
-DOMAIN_NAME = 'http://localhost:8000'
+DOMAIN_NAME = 'http://127.0.0.1:8000'
 
 # Application definition
 
@@ -203,3 +203,7 @@ CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
 CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379'
 
 
+#Strupe
+
+STRIPE_PUBLIC_KEY = 'pk_test_51OKNeGHWlUzkGW6woxaTcAfQGerjpTpraf6MZWX29tASWGbfeL7s9pSYNWwgvdc1a7eQwqS7yaqgU5BWofHuRfxR0032vAhSf2'
+STRIPE_SECRET_KEY = 'sk_test_51OKNeGHWlUzkGW6wvqMrO162pez4eZpwgvTz4wMG0P5elM7rOtqo4gOMK6h3yfQYdb45R8Heq30bQzjUgsd0m3N800RvEmwRXK'

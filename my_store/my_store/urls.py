@@ -21,6 +21,8 @@ from django.urls import (  # Импорт метода path отвечающий
     include, path)
 from products.views import \
     IndexView  # Импорт класоового представление из файла views для работы со странице с продуктами
+from orders.views import stripe_webhook_view
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),  # Урл адрес в админ панель
@@ -28,7 +30,8 @@ urlpatterns = [
     path("products/", include('products.urls', namespace='products')),  # Урл на католог ссылка с продуктами
     path("users/", include('users.urls', namespace='users')),  # Урл на Пользовательский интерфейс
     path('accounts/', include('allauth.urls')),
-    path('orders/', include('orders.urls', namespace='orders'))
+    path('orders/', include('orders.urls', namespace='orders')),
+    path('webhoowebhook/stripe/', stripe_webhook_view, name='stripe_webhook'),
 ]
 
 if settings.DEBUG:
